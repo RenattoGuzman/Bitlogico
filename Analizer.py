@@ -6,7 +6,7 @@ tokens = ['VARIABLE', 'CONSTANTE', 'NEGACION', 'CONJUNCION', 'DISYUNCION', 'IMPL
 
 # Reglas léxicas
 t_VARIABLE = r'[a-z]'
-t_CONSTANTE = r'[01]'
+t_CONSTANTE = r'[0-9]'
 t_NEGACION = r'~'
 t_CONJUNCION = r'\^'
 t_DISYUNCION = r'o'
@@ -28,7 +28,9 @@ def p_formula(p):
                | PARENTESIS_ABRE formula PARENTESIS_CIERRA'''
     # Aquí se pueden realizar las acciones semánticas correspondientes
     pass
-
+def t_error(t):
+    print(f'caracter no valido: {t[0]}')
+    t.lexer.skip(1)
 def p_error(p):
     print("Error de sintaxis")
 
@@ -38,8 +40,11 @@ lexer = lex.lex()
 # Construcción del analizador sintáctico
 parser = yacc.yacc()
 
-# Ejemplo de entrada
-entrada = "~(p ^ q) <=> (r o s)"
+def verificar_expresion(expresion):
+    try:
+        parser.parse(expresion, lexer = lexer) 
+        print("Análisis sintáctico exitoso. La expresión es bien formulada.")
+    except:
+        print("Error de sintaxis. La expresión no está bien formulada.")
 
-# Parsear la entrada
-parser.parse(entrada)
+verificar_expresion("~(p ^ q) <=> ~(r ^ s)")
