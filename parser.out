@@ -1,0 +1,383 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> formula
+Rule 1     formula -> NEGACION formula
+Rule 2     formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA
+Rule 3     formula -> VARIABLE
+Rule 4     formula -> CONSTANTE
+Rule 5     formula -> <empty>
+Rule 6     formula -> formula CONJUNCION formula
+Rule 7     formula -> formula DISYUNCION formula
+Rule 8     formula -> formula IMPLICACION formula
+Rule 9     formula -> formula EQUIVALENCIA formula
+
+Terminals, with rules where they appear
+
+CONJUNCION           : 6
+CONSTANTE            : 4
+DISYUNCION           : 7
+EQUIVALENCIA         : 9
+IMPLICACION          : 8
+NEGACION             : 1
+PARENTESIS_ABRE      : 2
+PARENTESIS_CIERRA    : 2
+VARIABLE             : 3
+error                : 
+
+Nonterminals, with rules where they appear
+
+formula              : 1 2 6 6 7 7 8 8 9 9 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . formula
+    (1) formula -> . NEGACION formula
+    (2) formula -> . PARENTESIS_ABRE formula PARENTESIS_CIERRA
+    (3) formula -> . VARIABLE
+    (4) formula -> . CONSTANTE
+    (5) formula -> .
+    (6) formula -> . formula CONJUNCION formula
+    (7) formula -> . formula DISYUNCION formula
+    (8) formula -> . formula IMPLICACION formula
+    (9) formula -> . formula EQUIVALENCIA formula
+
+    NEGACION        shift and go to state 2
+    PARENTESIS_ABRE shift and go to state 3
+    VARIABLE        shift and go to state 4
+    CONSTANTE       shift and go to state 5
+    CONJUNCION      reduce using rule 5 (formula -> .)
+    DISYUNCION      reduce using rule 5 (formula -> .)
+    IMPLICACION     reduce using rule 5 (formula -> .)
+    EQUIVALENCIA    reduce using rule 5 (formula -> .)
+    $end            reduce using rule 5 (formula -> .)
+
+    formula                        shift and go to state 1
+
+state 1
+
+    (0) S' -> formula .
+    (6) formula -> formula . CONJUNCION formula
+    (7) formula -> formula . DISYUNCION formula
+    (8) formula -> formula . IMPLICACION formula
+    (9) formula -> formula . EQUIVALENCIA formula
+
+    CONJUNCION      shift and go to state 6
+    DISYUNCION      shift and go to state 7
+    IMPLICACION     shift and go to state 8
+    EQUIVALENCIA    shift and go to state 9
+
+
+state 2
+
+    (1) formula -> NEGACION . formula
+    (1) formula -> . NEGACION formula
+    (2) formula -> . PARENTESIS_ABRE formula PARENTESIS_CIERRA
+    (3) formula -> . VARIABLE
+    (4) formula -> . CONSTANTE
+    (5) formula -> .
+    (6) formula -> . formula CONJUNCION formula
+    (7) formula -> . formula DISYUNCION formula
+    (8) formula -> . formula IMPLICACION formula
+    (9) formula -> . formula EQUIVALENCIA formula
+
+    NEGACION        shift and go to state 2
+    PARENTESIS_ABRE shift and go to state 3
+    VARIABLE        shift and go to state 4
+    CONSTANTE       shift and go to state 5
+    CONJUNCION      reduce using rule 5 (formula -> .)
+    DISYUNCION      reduce using rule 5 (formula -> .)
+    IMPLICACION     reduce using rule 5 (formula -> .)
+    EQUIVALENCIA    reduce using rule 5 (formula -> .)
+    $end            reduce using rule 5 (formula -> .)
+    PARENTESIS_CIERRA reduce using rule 5 (formula -> .)
+
+    formula                        shift and go to state 10
+
+state 3
+
+    (2) formula -> PARENTESIS_ABRE . formula PARENTESIS_CIERRA
+    (1) formula -> . NEGACION formula
+    (2) formula -> . PARENTESIS_ABRE formula PARENTESIS_CIERRA
+    (3) formula -> . VARIABLE
+    (4) formula -> . CONSTANTE
+    (5) formula -> .
+    (6) formula -> . formula CONJUNCION formula
+    (7) formula -> . formula DISYUNCION formula
+    (8) formula -> . formula IMPLICACION formula
+    (9) formula -> . formula EQUIVALENCIA formula
+
+    NEGACION        shift and go to state 2
+    PARENTESIS_ABRE shift and go to state 3
+    VARIABLE        shift and go to state 4
+    CONSTANTE       shift and go to state 5
+    PARENTESIS_CIERRA reduce using rule 5 (formula -> .)
+    CONJUNCION      reduce using rule 5 (formula -> .)
+    DISYUNCION      reduce using rule 5 (formula -> .)
+    IMPLICACION     reduce using rule 5 (formula -> .)
+    EQUIVALENCIA    reduce using rule 5 (formula -> .)
+
+    formula                        shift and go to state 11
+
+state 4
+
+    (3) formula -> VARIABLE .
+
+    CONJUNCION      reduce using rule 3 (formula -> VARIABLE .)
+    DISYUNCION      reduce using rule 3 (formula -> VARIABLE .)
+    IMPLICACION     reduce using rule 3 (formula -> VARIABLE .)
+    EQUIVALENCIA    reduce using rule 3 (formula -> VARIABLE .)
+    $end            reduce using rule 3 (formula -> VARIABLE .)
+    PARENTESIS_CIERRA reduce using rule 3 (formula -> VARIABLE .)
+
+
+state 5
+
+    (4) formula -> CONSTANTE .
+
+    CONJUNCION      reduce using rule 4 (formula -> CONSTANTE .)
+    DISYUNCION      reduce using rule 4 (formula -> CONSTANTE .)
+    IMPLICACION     reduce using rule 4 (formula -> CONSTANTE .)
+    EQUIVALENCIA    reduce using rule 4 (formula -> CONSTANTE .)
+    $end            reduce using rule 4 (formula -> CONSTANTE .)
+    PARENTESIS_CIERRA reduce using rule 4 (formula -> CONSTANTE .)
+
+
+state 6
+
+    (6) formula -> formula CONJUNCION . formula
+    (1) formula -> . NEGACION formula
+    (2) formula -> . PARENTESIS_ABRE formula PARENTESIS_CIERRA
+    (3) formula -> . VARIABLE
+    (4) formula -> . CONSTANTE
+    (5) formula -> .
+    (6) formula -> . formula CONJUNCION formula
+    (7) formula -> . formula DISYUNCION formula
+    (8) formula -> . formula IMPLICACION formula
+    (9) formula -> . formula EQUIVALENCIA formula
+
+    NEGACION        shift and go to state 2
+    PARENTESIS_ABRE shift and go to state 3
+    VARIABLE        shift and go to state 4
+    CONSTANTE       shift and go to state 5
+    CONJUNCION      reduce using rule 5 (formula -> .)
+    DISYUNCION      reduce using rule 5 (formula -> .)
+    IMPLICACION     reduce using rule 5 (formula -> .)
+    EQUIVALENCIA    reduce using rule 5 (formula -> .)
+    $end            reduce using rule 5 (formula -> .)
+    PARENTESIS_CIERRA reduce using rule 5 (formula -> .)
+
+    formula                        shift and go to state 12
+
+state 7
+
+    (7) formula -> formula DISYUNCION . formula
+    (1) formula -> . NEGACION formula
+    (2) formula -> . PARENTESIS_ABRE formula PARENTESIS_CIERRA
+    (3) formula -> . VARIABLE
+    (4) formula -> . CONSTANTE
+    (5) formula -> .
+    (6) formula -> . formula CONJUNCION formula
+    (7) formula -> . formula DISYUNCION formula
+    (8) formula -> . formula IMPLICACION formula
+    (9) formula -> . formula EQUIVALENCIA formula
+
+    NEGACION        shift and go to state 2
+    PARENTESIS_ABRE shift and go to state 3
+    VARIABLE        shift and go to state 4
+    CONSTANTE       shift and go to state 5
+    CONJUNCION      reduce using rule 5 (formula -> .)
+    DISYUNCION      reduce using rule 5 (formula -> .)
+    IMPLICACION     reduce using rule 5 (formula -> .)
+    EQUIVALENCIA    reduce using rule 5 (formula -> .)
+    $end            reduce using rule 5 (formula -> .)
+    PARENTESIS_CIERRA reduce using rule 5 (formula -> .)
+
+    formula                        shift and go to state 13
+
+state 8
+
+    (8) formula -> formula IMPLICACION . formula
+    (1) formula -> . NEGACION formula
+    (2) formula -> . PARENTESIS_ABRE formula PARENTESIS_CIERRA
+    (3) formula -> . VARIABLE
+    (4) formula -> . CONSTANTE
+    (5) formula -> .
+    (6) formula -> . formula CONJUNCION formula
+    (7) formula -> . formula DISYUNCION formula
+    (8) formula -> . formula IMPLICACION formula
+    (9) formula -> . formula EQUIVALENCIA formula
+
+    NEGACION        shift and go to state 2
+    PARENTESIS_ABRE shift and go to state 3
+    VARIABLE        shift and go to state 4
+    CONSTANTE       shift and go to state 5
+    CONJUNCION      reduce using rule 5 (formula -> .)
+    DISYUNCION      reduce using rule 5 (formula -> .)
+    IMPLICACION     reduce using rule 5 (formula -> .)
+    EQUIVALENCIA    reduce using rule 5 (formula -> .)
+    $end            reduce using rule 5 (formula -> .)
+    PARENTESIS_CIERRA reduce using rule 5 (formula -> .)
+
+    formula                        shift and go to state 14
+
+state 9
+
+    (9) formula -> formula EQUIVALENCIA . formula
+    (1) formula -> . NEGACION formula
+    (2) formula -> . PARENTESIS_ABRE formula PARENTESIS_CIERRA
+    (3) formula -> . VARIABLE
+    (4) formula -> . CONSTANTE
+    (5) formula -> .
+    (6) formula -> . formula CONJUNCION formula
+    (7) formula -> . formula DISYUNCION formula
+    (8) formula -> . formula IMPLICACION formula
+    (9) formula -> . formula EQUIVALENCIA formula
+
+    NEGACION        shift and go to state 2
+    PARENTESIS_ABRE shift and go to state 3
+    VARIABLE        shift and go to state 4
+    CONSTANTE       shift and go to state 5
+    CONJUNCION      reduce using rule 5 (formula -> .)
+    DISYUNCION      reduce using rule 5 (formula -> .)
+    IMPLICACION     reduce using rule 5 (formula -> .)
+    EQUIVALENCIA    reduce using rule 5 (formula -> .)
+    $end            reduce using rule 5 (formula -> .)
+    PARENTESIS_CIERRA reduce using rule 5 (formula -> .)
+
+    formula                        shift and go to state 15
+
+state 10
+
+    (1) formula -> NEGACION formula .
+    (6) formula -> formula . CONJUNCION formula
+    (7) formula -> formula . DISYUNCION formula
+    (8) formula -> formula . IMPLICACION formula
+    (9) formula -> formula . EQUIVALENCIA formula
+
+    CONJUNCION      reduce using rule 1 (formula -> NEGACION formula .)
+    DISYUNCION      reduce using rule 1 (formula -> NEGACION formula .)
+    IMPLICACION     reduce using rule 1 (formula -> NEGACION formula .)
+    EQUIVALENCIA    reduce using rule 1 (formula -> NEGACION formula .)
+    $end            reduce using rule 1 (formula -> NEGACION formula .)
+    PARENTESIS_CIERRA reduce using rule 1 (formula -> NEGACION formula .)
+
+  ! CONJUNCION      [ shift and go to state 6 ]
+  ! DISYUNCION      [ shift and go to state 7 ]
+  ! IMPLICACION     [ shift and go to state 8 ]
+  ! EQUIVALENCIA    [ shift and go to state 9 ]
+
+
+state 11
+
+    (2) formula -> PARENTESIS_ABRE formula . PARENTESIS_CIERRA
+    (6) formula -> formula . CONJUNCION formula
+    (7) formula -> formula . DISYUNCION formula
+    (8) formula -> formula . IMPLICACION formula
+    (9) formula -> formula . EQUIVALENCIA formula
+
+    PARENTESIS_CIERRA shift and go to state 16
+    CONJUNCION      shift and go to state 6
+    DISYUNCION      shift and go to state 7
+    IMPLICACION     shift and go to state 8
+    EQUIVALENCIA    shift and go to state 9
+
+
+state 12
+
+    (6) formula -> formula CONJUNCION formula .
+    (6) formula -> formula . CONJUNCION formula
+    (7) formula -> formula . DISYUNCION formula
+    (8) formula -> formula . IMPLICACION formula
+    (9) formula -> formula . EQUIVALENCIA formula
+
+    CONJUNCION      reduce using rule 6 (formula -> formula CONJUNCION formula .)
+    DISYUNCION      reduce using rule 6 (formula -> formula CONJUNCION formula .)
+    IMPLICACION     reduce using rule 6 (formula -> formula CONJUNCION formula .)
+    EQUIVALENCIA    reduce using rule 6 (formula -> formula CONJUNCION formula .)
+    $end            reduce using rule 6 (formula -> formula CONJUNCION formula .)
+    PARENTESIS_CIERRA reduce using rule 6 (formula -> formula CONJUNCION formula .)
+
+  ! CONJUNCION      [ shift and go to state 6 ]
+  ! DISYUNCION      [ shift and go to state 7 ]
+  ! IMPLICACION     [ shift and go to state 8 ]
+  ! EQUIVALENCIA    [ shift and go to state 9 ]
+
+
+state 13
+
+    (7) formula -> formula DISYUNCION formula .
+    (6) formula -> formula . CONJUNCION formula
+    (7) formula -> formula . DISYUNCION formula
+    (8) formula -> formula . IMPLICACION formula
+    (9) formula -> formula . EQUIVALENCIA formula
+
+    DISYUNCION      reduce using rule 7 (formula -> formula DISYUNCION formula .)
+    IMPLICACION     reduce using rule 7 (formula -> formula DISYUNCION formula .)
+    EQUIVALENCIA    reduce using rule 7 (formula -> formula DISYUNCION formula .)
+    $end            reduce using rule 7 (formula -> formula DISYUNCION formula .)
+    PARENTESIS_CIERRA reduce using rule 7 (formula -> formula DISYUNCION formula .)
+    CONJUNCION      shift and go to state 6
+
+  ! CONJUNCION      [ reduce using rule 7 (formula -> formula DISYUNCION formula .) ]
+  ! DISYUNCION      [ shift and go to state 7 ]
+  ! IMPLICACION     [ shift and go to state 8 ]
+  ! EQUIVALENCIA    [ shift and go to state 9 ]
+
+
+state 14
+
+    (8) formula -> formula IMPLICACION formula .
+    (6) formula -> formula . CONJUNCION formula
+    (7) formula -> formula . DISYUNCION formula
+    (8) formula -> formula . IMPLICACION formula
+    (9) formula -> formula . EQUIVALENCIA formula
+
+    IMPLICACION     reduce using rule 8 (formula -> formula IMPLICACION formula .)
+    EQUIVALENCIA    reduce using rule 8 (formula -> formula IMPLICACION formula .)
+    $end            reduce using rule 8 (formula -> formula IMPLICACION formula .)
+    PARENTESIS_CIERRA reduce using rule 8 (formula -> formula IMPLICACION formula .)
+    CONJUNCION      shift and go to state 6
+    DISYUNCION      shift and go to state 7
+
+  ! CONJUNCION      [ reduce using rule 8 (formula -> formula IMPLICACION formula .) ]
+  ! DISYUNCION      [ reduce using rule 8 (formula -> formula IMPLICACION formula .) ]
+  ! IMPLICACION     [ shift and go to state 8 ]
+  ! EQUIVALENCIA    [ shift and go to state 9 ]
+
+
+state 15
+
+    (9) formula -> formula EQUIVALENCIA formula .
+    (6) formula -> formula . CONJUNCION formula
+    (7) formula -> formula . DISYUNCION formula
+    (8) formula -> formula . IMPLICACION formula
+    (9) formula -> formula . EQUIVALENCIA formula
+
+    IMPLICACION     reduce using rule 9 (formula -> formula EQUIVALENCIA formula .)
+    EQUIVALENCIA    reduce using rule 9 (formula -> formula EQUIVALENCIA formula .)
+    $end            reduce using rule 9 (formula -> formula EQUIVALENCIA formula .)
+    PARENTESIS_CIERRA reduce using rule 9 (formula -> formula EQUIVALENCIA formula .)
+    CONJUNCION      shift and go to state 6
+    DISYUNCION      shift and go to state 7
+
+  ! CONJUNCION      [ reduce using rule 9 (formula -> formula EQUIVALENCIA formula .) ]
+  ! DISYUNCION      [ reduce using rule 9 (formula -> formula EQUIVALENCIA formula .) ]
+  ! IMPLICACION     [ shift and go to state 8 ]
+  ! EQUIVALENCIA    [ shift and go to state 9 ]
+
+
+state 16
+
+    (2) formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA .
+
+    CONJUNCION      reduce using rule 2 (formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA .)
+    DISYUNCION      reduce using rule 2 (formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA .)
+    IMPLICACION     reduce using rule 2 (formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA .)
+    EQUIVALENCIA    reduce using rule 2 (formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA .)
+    $end            reduce using rule 2 (formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA .)
+    PARENTESIS_CIERRA reduce using rule 2 (formula -> PARENTESIS_ABRE formula PARENTESIS_CIERRA .)
+

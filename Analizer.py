@@ -73,11 +73,13 @@ precedence = (
 parser = yacc.yacc()
 
 def verificar_expresion(expresion):
-   
         r_arbol = parser.parse(expresion, lexer = lexer) 
-        png = graficar_arbol(r_arbol)
-        png.view(filename=f'output')
-        print("Análisis sintáctico exitoso. La expresión es bien formulada.")
+        if(r_arbol):
+            png = graficar_arbol(r_arbol)
+            png.view(filename=f'output')
+            print(f"Análisis sintáctico exitoso. La expresión {expresion} es bien formulada.")
+        else:
+             print(f"La expresión {expresion} no está bien formulada.")
 
 
-verificar_expresion("((p=>q)^p)")
+verificar_expresion("(p<=>~p)")
