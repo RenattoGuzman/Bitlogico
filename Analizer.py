@@ -36,7 +36,7 @@ def p_formula_valor(p): #variable o constante
     formula : VARIABLE
                | CONSTANTE
     '''
-    p[0] = p[1]
+    p[0] = NodoAST( p[1] )
 
 def p_formula(p):
     '''formula :
