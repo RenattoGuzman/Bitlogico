@@ -5,7 +5,7 @@ from AST import *
 tokens = ['VARIABLE', 'CONSTANTE', 'NEGACION', 'CONJUNCION', 'DISYUNCION', 'IMPLICACION', 'EQUIVALENCIA', 'PARENTESIS_ABRE', 'PARENTESIS_CIERRA']
 
 # Reglas léxicas
-t_VARIABLE = r'[a-z]'
+t_VARIABLE = r'[p-z]'
 t_CONSTANTE = r'[0-1]'
 t_NEGACION = r'~'
 t_CONJUNCION = r'\^'
@@ -82,4 +82,4 @@ def verificar_expresion(expresion):
              print(f"La expresión {expresion} no está bien formulada.")
 
 
-verificar_expresion("(p<=>~p)")
+verificar_expresion("(~(p^(qor))os)")
